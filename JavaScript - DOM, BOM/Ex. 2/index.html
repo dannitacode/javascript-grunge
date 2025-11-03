@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First form</title>
+</head>
+<body>
+    <form name="form" novalidate onsubmit="return funcion()">
+        <label for="number">Ingrese un numero del 1 al 100</label>
+        <input type="number" name="number" style="display: block;">
+        <input type="submit" value="Enviar">
+    </form>
+    <script>
+        function funcion() {
+            const form = document.forms['form']
+            const number = form['number']
+            if (number.value >= 1 && number.value <= 100) {
+                console.log(true)
+            } else {
+                console.log(false)
+            }
+            return false;
+        }
+    </script>
+</body>
+</html>
