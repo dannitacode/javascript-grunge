@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .body {position: relative;}
+        .contenedor {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .cuadrado {padding: 20px;}
+        .negro {background-color: black;}
+        .morado {background-color: purple;}
+        .azul {background-color: blue;}
+        .coral {background-color: coral;}
+        .marron {background-color: brown;}
+    </style>
+</head>
+<body>
+    <div class="contenedor" onmouseout="color()">
+    <div class="cuadrado negro" onmouseover="colorNegro()"></div>
+    <div class="cuadrado morado" onmouseover="colorPurple()"></div>
+    <div class="cuadrado azul" onmouseover="colorAzul()"></div>
+    <div class="cuadrado coral" onmouseover="colorCoral()"></div>
+    <div class="cuadrado marron" onmouseover="colorMarron()"></div>
+    </div>
+    <script>
+        const elemento = document.body
+        function colorNegro() {elemento.style.backgroundColor = 'black'}
+        function colorPurple() {elemento.style.backgroundColor = 'purple'}
+        function colorAzul() {elemento.style.backgroundColor = 'blue'}
+        function colorCoral() {elemento.style.backgroundColor = 'coral'}
+        function colorMarron() {elemento.style.backgroundColor = 'brown'}
+        function color() {elemento.style.backgroundColor = 'white'}
+    </script>
+</body>
+</html>
