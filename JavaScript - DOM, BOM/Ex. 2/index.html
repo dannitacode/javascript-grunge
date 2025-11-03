@@ -16,29 +16,30 @@
             gap: 10px;
         }
         .cuadrado {padding: 20px;}
-        .negro {background-color: black;}
-        .morado {background-color: purple;}
-        .azul {background-color: blue;}
-        .coral {background-color: coral;}
-        .marron {background-color: brown;}
     </style>
 </head>
 <body>
-    <div class="contenedor" onmouseout="color()">
-    <div class="cuadrado negro" onmouseover="colorNegro()"></div>
-    <div class="cuadrado morado" onmouseover="colorPurple()"></div>
-    <div class="cuadrado azul" onmouseover="colorAzul()"></div>
-    <div class="cuadrado coral" onmouseover="colorCoral()"></div>
-    <div class="cuadrado marron" onmouseover="colorMarron()"></div>
+    <div class="contenedor">
+    <div class="cuadrado negro" style="background-color: black;"></div>
+    <div class="cuadrado morado" style="background-color: purple;"></div>
+    <div class="cuadrado azul" style="background-color: blue;"></div>
+    <div class="cuadrado coral" style="background-color: coral;"></div>
+    <div class="cuadrado marron" style="background-color: brown;"></div>
     </div>
     <script>
-        const elemento = document.body
-        function colorNegro() {elemento.style.backgroundColor = 'black'}
-        function colorPurple() {elemento.style.backgroundColor = 'purple'}
-        function colorAzul() {elemento.style.backgroundColor = 'blue'}
-        function colorCoral() {elemento.style.backgroundColor = 'coral'}
-        function colorMarron() {elemento.style.backgroundColor = 'brown'}
-        function color() {elemento.style.backgroundColor = 'white'}
+        const body = document.body
+        const elementos = document.getElementsByClassName('cuadrado')
+        function colores() {
+            body.style.backgroundColor = this.style.backgroundColor
+        }
+        function blanco() {
+            body.style.backgroundColor = 'white'
+        }
+        
+        for (let index = 0; index < elementos.length; index++) {
+            elementos[index].addEventListener('mouseover', colores)
+            elementos[index].addEventListener('mouseout', blanco)
+        }
     </script>
 </body>
 </html>
