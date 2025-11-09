@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Realiza una página que efectúe 3 preguntas de evaluación donde el usuario
+seleccione a través de radio button su respuesta. La página proporcionará la evaluación y
+las respuestas correctas a petición del usuario. (Ejercicio 6 del práctico de Forms, agregue
+el atributo novalidate en la etiqueta form) -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Evaluación</title>
+</head>
+
+<body>
+    <form novalidate onsubmit="return validarExam()">
+        <h3>Evaluación</h3>
+        <ol>
+            <div class="preguntas">
+                <label for="pregunta1">
+                    <li>¿Cuál es el lenguaje utilizado para estructurar páginas web?</li>
+                </label>
+            </div>
+            <div class="opciones">
+                <input type="radio" name="language" value="HTML">
+                <label for="html">HTML</label>
+            </div>
+            <div class="opciones">
+                <input type="radio" name="language" value="CSS">
+                <label for="css">CSS</label>
+            </div>
+            <div class="opciones">
+                <input type="radio" name="language" value="JavaScript">
+                <label for="javascript">JavaScript</label>
+            </div>
+            <div class="preguntas">
+                <label for="pregunta2">
+                    <li>¿Cuál es el lenguaje utilizado para diseñar el estilo de una página web?</li>
+                </label>
+            </div>
+            <div class="opciones">
+                <input type="radio" name="language2">
+                <label for="html">HTML</label>
+            </div>
+            <div class="opciones">
+                <input type="radio" name="language2">
+                <label for="css">CSS</label>
+            </div>
+            <div class="opciones">
+                <input type="radio" name="language2" disabled>
+                <label for="javascript">JavaScript</label>
+            </div>
+            <div class="preguntas">
+                <label for="pregunta3">
+                    <li>¿Cuál es el lenguaje utilizado para añadir interactividad a una página web?</li>
+                </label>
+            </div>
+            <div class="opciones">
+                <input type="radio" name="language3">
+                <label for="html">HTML</label>
+            </div>
+            <div class="opciones">
+                <input type="radio" name="language3">
+                <label for="css">CSS</label>
+            </div>
+            <div class="opciones">
+                <input type="radio" name="language3">
+                <label for="javascript">JavaScript</label>
+            </div>
+            <div class="boton-evaluar">
+                <input type="submit" value="Evaluar" id="boton">
+            </div>
+        </ol>
+    </form>
+    <script>
+        const form = document.forms[0]
+        const lenguaje = document.getElementsByName('language')
+        const lenguaje2 = document.getElementsByName('language2')
+        const lenguaje3 = document.getElementsByName('language3')
+        function validarExam() {
+            if (lenguaje[0].checked && lenguaje2[1].checked && lenguaje3[2].checked) {
+                elemento()
+                return false
+            } else {
+                elemento2()
+                return false
+            }
+        }
+        
+        function elemento() {
+            const span = document.createElement('span')
+            span.textContent = 'Correcto!'
+            span.style.padding = '5px'
+            span.style.backgroundColor = 'yellow'
+            span.style.textAlign = 'center'
+            span.style.borderRadius = '10px'
+            span.style.display = 'flex'
+            span.style.justifyContent = 'center'
+            form.appendChild(span)
+        }
+
+        function elemento2() {
+            const span = document.createElement('span')
+            span.textContent = 'Incorrecto!'
+            span.style.padding = '5px'
+            span.style.backgroundColor = 'gray'
+            span.style.textAlign = 'center'
+            span.style.borderRadius = '10px'
+            span.style.display = 'flex'
+            span.style.justifyContent = 'center'
+            form.appendChild(span)
+        }
+    </script>
+</body>
+
+</html>

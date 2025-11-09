@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #efefef;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+h3 {
+    font-size: larger;   
+    display: flex;
+}
+
+form {
+    background-color: white;
+    padding: 20px;
+    width: fit-content;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+}
+
+.preguntas {
+    padding: 15px;
+}
+.opciones {
+    display: flex;
+    gap: 10px;
+    padding-bottom: 5px;
+
+}
+
+ol {
+    padding-left: 0;
+}
+
+.boton-evaluar {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+#boton {
+    background-color: green;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    color: white;
+    font-weight: bold;
+}
+
