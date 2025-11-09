@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Realice un formulario que contenga Nombre, Apellido, Sexo, Fecha de nacimiento y
+mail. Luego realice las validaciones para cada uno de los campos. (Ejercicio 2 del práctico
+de Forms, agregue el atributo novalidate en la etiqueta form) -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>My login</title>
+</head>
+
+<body>
+    <form method="get" novalidate onsubmit="return validaciones()">
+        <div class="item">
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" required autocomplete="off" minlength="3" maxlength="10">
+        </div>
+        <div class="item">
+            <label for="apellido">Apellido:</label>
+            <input type="text" name="apellido" required autocomplete="off" minlength="3" maxlength="10">
+        </div>
+        <div class="item">
+            <label for="email">Mail:</label>
+            <input type="email" name="email" required autocomplete="off" placeholder="ejemplo@gmail.com">
+        </div>
+        <div class="item">
+            <label for="sexo">Sexo:</label>
+            <select name="sexo" required>
+                <option value="opcion-entrada" selected>Escoja una opcion</option>
+                <option value="hombre">Hombre</option>
+                <option value="mujer">Mujer</option>
+            </select>
+        </div>
+        <div class="item">
+            <label for="fechaNacimiento">Fecha de nacimiento:</label>
+            <input type="date" name="fechaNacimiento" required max="2008-01-01" min="1930-01-01">
+        </div>
+        <div class="item submit">
+            <input type="submit" value="Enviar" id="enviar">
+        </div>
+    </form>
+    <script src="script.js" defer></script>
+</body>
+
+</html>

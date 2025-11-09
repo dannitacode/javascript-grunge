@@ -1,45 +1,44 @@
 <!DOCTYPE html>
 <html lang="es">
+<!-- Realiza una página que muestre un formulario y verifique la entrada de un número
+que esté comprendido entre 1 y 100. (Ejercicio 1 del práctico de Forms, agregue el
+atributo novalidate en la etiqueta form) -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        .body {position: relative;}
-        .contenedor {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        .cuadrado {padding: 20px;}
-    </style>
+    <title>First form</title>
 </head>
+
 <body>
-    <div class="contenedor">
-    <div class="cuadrado negro" style="background-color: black;"></div>
-    <div class="cuadrado morado" style="background-color: purple;"></div>
-    <div class="cuadrado azul" style="background-color: blue;"></div>
-    <div class="cuadrado coral" style="background-color: coral;"></div>
-    <div class="cuadrado marron" style="background-color: brown;"></div>
-    </div>
+    <form name="form" onsubmit="return validacion()" novalidate>
+        <label for="numeros">Ingrese un numero del 1 al 100</label>
+        <input type="number" name="number" style="display: block;">
+        <input type="submit" value="Validar">
+    </form>
+
     <script>
-        const body = document.body
-        const elementos = document.getElementsByClassName('cuadrado')
-        function colores() {
-            body.style.backgroundColor = this.style.backgroundColor
-        }
-        function blanco() {
-            body.style.backgroundColor = 'white'
-        }
-        
-        for (let index = 0; index < elementos.length; index++) {
-            elementos[index].addEventListener('mouseover', colores)
-            elementos[index].addEventListener('mouseout', blanco)
+        const form = document.forms['form']
+        const inputNumeros = form['number']
+        function validacion() {
+            flag = true;
+            const inputNumerosValue = inputNumeros.value.trim()
+            if (inputNumerosValue < 1 || inputNumerosValue > 100) {
+                console.log('Error: tiene que ser mayor que 1 y menor que 100.')
+                inputNumeros.style.borderColor = 'red'
+                flag = false;
+            } else {
+                console.log('Ha pasado el test.')
+                inputNumeros.style.borderColor = 'green'
+            }
+
+            if (flag === true) {
+                form.reset()    
+                return false;
+            } else {  
+                return false;
+            }
         }
     </script>
 </body>
+
 </html>

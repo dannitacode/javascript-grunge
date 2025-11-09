@@ -1,0 +1,19 @@
+form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    width: fit-content;
+    border: 1px solid black;
+    border-radius: 5%;
+    padding: 0.8em;
+}
+label {
+    display: flex;
+    flex-direction: column;
+    color: rgb(87, 57, 12);
+}
+
+.oli {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}

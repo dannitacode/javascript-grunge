@@ -1,0 +1,8 @@
+form {
+    display: flex;
+    flex-direction: column;
+    border: solid cadetblue;
+    width: 15%;
+    border-radius: 5%;
+    padding: 2%;
+}

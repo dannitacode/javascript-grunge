@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Realice un formulario para la carga de datos de un CD. Realice las validaciones
+correspondientes. Por medio de un botón agregar canción se debe habilitar una línea nueva
+para cargar la canción (nombre, compositor, duración). (Ejercicio 4 del práctico de Forms,
+agregue el atributo novalidate en la etiqueta form) -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario CD</title>
+    <link rel="stylesheet" href="Styles.css">
+</head>
+
+<body>
+    <form action="" method="get" novalidate>
+        <label style="color:rgb(168, 55, 24); font-size: 20px;">Formulario de CD</label>
+        <div class="oli">
+            <button type="submit" onclick="return carga()">Agregar Cancion</button>
+        </div>
+    </form>
+    <script>
+        function carga() {
+            const form = document.forms[0]
+            const container = document.createElement('div')
+
+            const labelNombre = document.createElement('label')
+            const labelCompositor = document.createElement('label')
+            const labelDuracion = document.createElement('label')
+
+            const inputNombre = document.createElement('input')
+            const inputCompositor = document.createElement('input')
+            const inputDuracion = document.createElement('input')
+
+            inputNombre.setAttribute('type', 'text')
+            inputNombre.setAttribute('name','nombre')
+            inputCompositor.setAttribute('type','text')
+            inputCompositor.setAttribute('name','compositor')
+            inputDuracion.setAttribute('type','text')
+            inputDuracion.setAttribute('name','duracion')
+
+            labelNombre.textContent = 'Nombre: '
+            labelCompositor.textContent = 'Compositor: '
+            labelDuracion.textContent = 'Duracion: '
+
+            container.append(labelNombre, inputNombre, labelCompositor, inputCompositor, labelDuracion, inputDuracion)
+            form.appendChild(container)
+            return false;
+            /* Sin acabar por no comprender la consigna */
+        }
+    </script>
+</body>
+</html>

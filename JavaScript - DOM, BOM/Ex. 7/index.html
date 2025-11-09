@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .body {position: relative;}
+        .contenedor {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .cuadrado {padding: 20px;}
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+    <div class="cuadrado negro" style="background-color: black;"></div>
+    <div class="cuadrado morado" style="background-color: purple;"></div>
+    <div class="cuadrado azul" style="background-color: blue;"></div>
+    <div class="cuadrado coral" style="background-color: coral;"></div>
+    <div class="cuadrado marron" style="background-color: brown;"></div>
+    </div>
+    <script>
+        const body = document.body
+        const elementos = document.getElementsByClassName('cuadrado')
+        function colores() {
+            body.style.backgroundColor = this.style.backgroundColor
+        }
+        function blanco() {
+            body.style.backgroundColor = 'white'
+        }
+        
+        for (let index = 0; index < elementos.length; index++) {
+            elementos[index].addEventListener('mouseover', colores)
+            elementos[index].addEventListener('mouseout', blanco)
+        }
+    </script>
+</body>
+</html>

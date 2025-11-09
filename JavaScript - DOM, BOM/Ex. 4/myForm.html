@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+    <!-- Realizar un formulario donde: la longitud del nombre sea mayor de cuatro caracteres.
+El nombre sólo debe contener caracteres del alfabeto español (no contiene números ni
+caracteres no alfanuméricos). La edad sólo debe contener números y estar comprendido
+entre 18 y 30. La dirección de correo debe incluir una arroba y su longitud sea superior a
+cinco caracteres. (Ejercicio 3 del práctico de Forms, agregue el atributo novalidate en la
+etiqueta form) -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My form</title>
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+            width: fit-content;
+            gap: 5px;
+        }
+    </style>
+</head>
+<body>
+    <form method="get" novalidate onsubmit="return validaciones()">
+        <label for="nombre">Ingrese su nombre:</label>
+        <input type="text" name="nombre" title="Más de 4 carácteres, no numeros" required autocomplete="off">
+        <label for="edad">Ingrese su edad:</label>
+        <input type="number" name="edad" required autocomplete="off">
+        <label for="email">Ingrese su correo electrónico:</label>
+        <input type="email" name="email" required autocomplete="off">
+        <input type="submit" value="Validar">
+    </form>
+    <script>
+        const form = document.forms[0]
+        const inputNombre = form['nombre']
+        const inputEdad = form['edad']
+        const inputEmail = form['email']
+        /* Expresiones regulares */
+        const regexNombre = /^[A-Za-zÁÉÍÓÚáéíóúÑñ/s]{4,}$/
+        const regexEdad = /^\d+$/
+        const regexEmail = /^\w{5,}@(gmail|outlook|yahoo)\.com+$/
+        function validaciones() {
+            let flag = true
+            if (!regexNombre.test(inputNombre.value.trim())) {
+                inputNombre.style.borderColor = 'red'
+                flag = false
+            } else {
+                inputNombre.style.borderColor = 'green'
+            }
+
+            if (!regexEdad.test(inputEdad.value.trim()) || (inputEdad.value.trim() < 18 || inputEdad.value.trim() > 30)) {
+                inputEdad.style.borderColor = 'red'
+                flag = false
+            } else {
+                inputEdad.style.borderColor = 'green'
+            }
+
+            if (!regexEmail.test(inputEmail.value.trim())) {
+                inputEmail.style.borderColor = 'red'
+                flag = false
+            } else {
+                inputEmail.style.borderColor = 'green'
+            }
+
+            if (flag === true) {
+                form.reset()
+                campos()
+                return false
+            } else {
+                return false
+            }
+        }
+
+        function campos() {
+            inputNombre.style.borderColor = 'inherit'
+            inputEdad.style.borderColor = 'inherit'
+            inputEmail.style.borderColor = 'inherit'
+        }
+    </script>
+</body>
+</html>

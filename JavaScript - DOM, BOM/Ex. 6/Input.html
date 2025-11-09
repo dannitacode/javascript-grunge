@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+    <!-- Realice una página donde el usuario pueda cargar un contacto. El contacto de esa
+persona debe tener al menos un teléfono y como máximo 3. Además debe ser obligatoria la
+carga del mail. Realice las validaciones necesarias y utilice expresiones regulares para el
+mail. (Ejercicio 5 del práctico de Forms, agregue el atributo novalidate en la etiqueta form) -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carga de Contactos</title>
+    <link rel="Stylesheet" href="Styles.css">
+</head>
+<body>
+    <form novalidate onsubmit="return validacion()">
+        <label style="color: brown; font-size: 140%;">Contactos</label>
+        <label>Nombre (*):</label>
+        <input type="text" name="nombre">
+        <label>Telefono 1 (*):</label>
+        <input type="tel" name="telefono1">
+        <label>Telefono 2:</label>
+        <input type="tel" name="telefono2">
+        <label>Telefono 3:</label>
+        <input type="tel" name="telefono3">
+        <label>Email (*):</label>
+        <input type="email" name="email">
+        <div class="boton">
+            <button type="submit">Guardar</button>
+            <span id="error" style="display: none;"></span>
+        </div>
+    </form>
+    <script src="script.js"></script>
+</body>
+</html>
