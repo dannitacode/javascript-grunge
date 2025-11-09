@@ -46,7 +46,7 @@ el atributo novalidate en la etiqueta form) -->
                 <label for="css">CSS</label>
             </div>
             <div class="opciones">
-                <input type="radio" name="language2" disabled>
+                <input type="radio" name="language2">
                 <label for="javascript">JavaScript</label>
             </div>
             <div class="preguntas">
@@ -76,38 +76,28 @@ el atributo novalidate en la etiqueta form) -->
         const lenguaje = document.getElementsByName('language')
         const lenguaje2 = document.getElementsByName('language2')
         const lenguaje3 = document.getElementsByName('language3')
+        const span = document.createElement('span')
+        span.classList.add('estilo-span')
+
         function validarExam() {
+            form.appendChild(span)
             if (lenguaje[0].checked && lenguaje2[1].checked && lenguaje3[2].checked) {
-                elemento()
+                span.textContent = 'Correcto!'
+                span.style.backgroundColor = 'greenyellow'
+                setTimeout(() => {
+                    span.remove(),
+                    form.reset()
+                }, 3000);
                 return false
             } else {
-                elemento2()
+                span.textContent = 'Incorrecto!'
+                span.style.backgroundColor = 'red'
+                setTimeout(() => {
+                    span.remove(),
+                    form.reset()
+                }, 3000);
                 return false
             }
-        }
-        
-        function elemento() {
-            const span = document.createElement('span')
-            span.textContent = 'Correcto!'
-            span.style.padding = '5px'
-            span.style.backgroundColor = 'yellow'
-            span.style.textAlign = 'center'
-            span.style.borderRadius = '10px'
-            span.style.display = 'flex'
-            span.style.justifyContent = 'center'
-            form.appendChild(span)
-        }
-
-        function elemento2() {
-            const span = document.createElement('span')
-            span.textContent = 'Incorrecto!'
-            span.style.padding = '5px'
-            span.style.backgroundColor = 'gray'
-            span.style.textAlign = 'center'
-            span.style.borderRadius = '10px'
-            span.style.display = 'flex'
-            span.style.justifyContent = 'center'
-            form.appendChild(span)
         }
     </script>
 </body>
