@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+    <!-- Realiza una página que muestre una imagen que cambie cuando el ratón pasa por
+encima de la imagen y que vuelva a cambiar cuando salga de ella. -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="./img/camera.png" alt="imagen cámara">
+    <script>
+        const img = document.images
+        function entrada() {
+            img[0].src = "./img/camorama.png"
+        }
+        function salida() {
+            img[0].src = "./img/camera.png"
+        }
+        for (let index = 0; index < img.length; index++) {
+            img[index].addEventListener('mouseover', entrada)
+            img[index].addEventListener('mouseout', salida)
+        }
+    </script>
+</body>
+</html>
