@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Realice una página que escriba en un campo de texto una cadena. La cadena debe ser
+escrita de a una letra por vez y el tiempo entre escritura de la letra debe ser 700ms. -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="text" onkeyup="entrada()">
+    <span></span>
+</body>
+<script>
+    const texto = document.querySelector('#text')
+    const span = document.getElementsByTagName('span')
+    function entrada() {
+        setTimeout(() => {
+            texto.disabled = true
+            const textoValue = texto.value.trim()
+            let i = 0
+            setInterval(() => {
+                if (i < textoValue.length) {
+                    span[0].textContent += textoValue[i]
+                    i++
+                } else {
+                    return
+                }
+            }, 700);
+        }, 3000);
+    }
+</script>
+
+</html>
