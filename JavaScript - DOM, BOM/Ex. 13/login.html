@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!-- Realice un formulario que disponga de dos cajas de texto para verificar usuario y
+password. El usuario debe comenzar con una letra mayúscula y tener al menos 3 números en
+cualquier posición. El password debe tener una longitud mínima de 8 caracteres, comenzar
+con un número y terminar con una letra mayúscula seguida de otro número. (Ejercicio 7 del
+práctico de Forms, agregue el atributo novalidate en la etiqueta form) -->
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Login</title>
+</head>
+
+<body>
+    <form novalidate onsubmit="return validacion()">
+        <h1>Iniciar Sesión</h1>
+        <label for="name">Username</label>
+        <input type="text" name="usuario" required autocomplete="off">
+        <span style="display: none;"></span>
+        <label for="password">Password</label>
+        <input type="password" name="contra" required autocomplete="off">
+        <span style="display: none;"></span>
+        <div class="boton-ingresar">
+            <input type="submit" value="Ingresar" id="id-boton">
+        </div>
+    </form>
+    <script src="script.js"></script>
+</body>
+
+</html>
