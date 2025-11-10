@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+    <!-- Realizar una página que permita modificar (añadir, borrar, modificar) al gusto del usuario
+los contenidos de un elemento SELECT de un formulario. -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+            width: fit-content;
+            gap: 20px;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <select name="select">
+            <option value="pan">Pan</option>
+            <option value="leche">Leche</option>
+            <option value="huevos">Huevos</option>
+            <option value="harina">Harina</option>
+        </select>
+        <input type="text" name="texto">
+        <div class="botones">
+            <input type="button" value="Agregar" name="boton-agregar" onclick="funcionAgregar()">
+            <input type="button" value="Modificar" name="boton-modificar" onclick="funcionModificar()">
+            <input type="button" value="Eliminar" name="boton-eliminar" onclick="funcionEliminar()">
+        </div>
+        <span style="display: none;"></span>
+    </form>
+    <script src="script.js"></script>
+</body>
+</html>
